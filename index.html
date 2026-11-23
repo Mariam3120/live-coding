@@ -7,19 +7,51 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <section class="buttons">
-      <div class="click-buttons">
-        <button class="add-btn">Add Item</button>
-        <button class="clear-btn">Clear</button>
+    <main class="app">
+      <div class="controls">
+        <button class="btn btn--primary" id="add-btn">Add Item</button>
+        <button class="btn btn--ghost" id="clear-btn">Clear</button>
       </div>
-      <p class="text">Use the button above to add items</p>
-      <div class="box box1">
-        <span>X</span>
-        <label for="text">IP Address</label>
-        <input class="ip-address" type="text" id="text" placeholder="158.143.37.141">
-      </div>
-   
-    </section>
+
+      <button class="btn btn--ghost btn--full" id="toggle-btn" hidden>
+        Toggle Cards
+      </button>
+
+      <p class="hint" id="hint">Use the button above to add items</p>
+
+      <ul class="card-list" id="card-list"></ul>
+    </main>
+
+    <template id="card-template">
+      <li class="card">
+        <button class="card__close" aria-label="Remove card">✕</button>
+
+        <!-- input view -->
+        <div class="card__form">
+          <label class="card__label">
+            IP Address
+            <input class="card__input" type="text" placeholder="8.8.8.8" />
+          </label>
+        </div>
+
+        <!-- result view -->
+        <div class="card__result">
+          <p class="card__title">
+            <img class="card__flag" alt="" />
+            <span class="card__country"></span>
+          </p>
+          <p class="card__meta">🕓 <span class="card__timezone"></span></p>
+
+          <div class="card__empty">
+            <p class="card__empty-title">Nothing to show</p>
+            <p class="card__empty-text">
+              Either no ip was provided or something went wrong
+            </p>
+          </div>
+        </div>
+      </li>
+    </template>
+
     <script src="script.js"></script>
   </body>
 </html>
